@@ -1,2 +1,9 @@
-# DelitosBarranquilla
-En el siguiente repositorio se encuentra información detallada sobre el proyecto de análisis de delitos en Barranquilla, desarrollado como parte del concurso de Datos Abiertos U.
+# **Creciendo en la Sombra: Cómo los Delitos de Alto Impacto Transforman Barranquilla**
+
+### Estudiantes:
+- Sebastian Arteta Padilla
+- Kanery Marcela Camargo Rodríguez.
+
+### Universidad del Norte
+
+### Noviembre 2024
