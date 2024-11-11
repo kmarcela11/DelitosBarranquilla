@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Análisis exploratorio de datos (EDA) &#8212; Delitos en Barranquilla</title>
+    <title>EDA y ETL: Conjunto de datos 1 &#8212; Delitos en Barranquilla</title>
   
   
   
@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Informe';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Modelo de Machine learning" href="Modelo.html" />
     <link rel="prev" title="Contextualización del proyecto" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -179,9 +180,12 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Análisis exploratorio de datos (EDA)</strong></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>EDA y ETL: Conjunto de datos 1</strong></a></li>
 
-
+<li class="toctree-l1"><a class="reference internal" href="Modelo.html"><strong>Modelo de Machine learning</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Informe2.html"><strong>EDA y ETL: Conjunto de datos 2 y 3</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Manual.html"><strong>Manual de usuario: BOT</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Mejoras.html"><strong>Posibles mejoras del proyecto</strong></a></li>
 </ul>
 
     </div>
@@ -367,7 +371,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Análisis exploratorio de datos (EDA)</h1>
+    <h1>EDA y ETL: Conjunto de datos 1</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -377,7 +381,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Análisis exploratorio de datos (EDA)</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>EDA y ETL: Conjunto de datos 1</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-modulos-necesarios"><strong>Librerías y modulos necesarios</strong></a></li>
 </ul>
 </li>
@@ -386,15 +390,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-de-los-datos"><strong>Características de los datos</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacion-limpieza-y-reorganizacion-del-conjunto-de-datos"><strong>Transformación, limpieza y reorganización del conjunto de datos</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reorganizacion-de-variables-categorias"><strong>Reorganización de variables categorías</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacion-limpieza-y-reorganizacion-del-conjunto-de-datos"><strong>Transformación, limpieza y reorganización del conjunto de datos</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delitos"><strong>Delitos</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-series-de-tiempo"><strong>Modelo de series de tiempo</strong></a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conjunto-de-datos-2"><strong>Conjunto de datos 2</strong></a></li>
 </ul>
 
             </nav>
@@ -407,24 +405,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="analisis-exploratorio-de-datos-eda">
-<h1><strong>Análisis exploratorio de datos (EDA)</strong><a class="headerlink" href="#analisis-exploratorio-de-datos-eda" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="eda-y-etl-conjunto-de-datos-1">
+<h1><strong>EDA y ETL: Conjunto de datos 1</strong><a class="headerlink" href="#eda-y-etl-conjunto-de-datos-1" title="Link to this heading">#</a></h1>
+<p>Es importante destacar que, para una persona no experta en datos interesada en conocer la situación de los delitos en su ciudad, la comprensión de este conjunto de datos puede resultar complicada, ya que se presenta como una comparación entre periodos de tiempo. Dado que nuestro objetivo es aprovechar los datos abiertos de la manera más efectiva, llevaremos a cabo una reestructuración de este conjunto de datos. Esta transformación buscará simplificar su interpretación y hacerlo más accesible, asegurando que cualquier persona pueda entender fácilmente la información presentada.</p>
 <section id="librerias-y-modulos-necesarios">
 <h2><strong>Librerías y modulos necesarios</strong><a class="headerlink" href="#librerias-y-modulos-necesarios" title="Link to this heading">#</a></h2>
+<p>Las librerías necesarias para el desarrollo del análisis exploratorio y transformación de datos son las siguientes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.arima.model</span> <span class="kn">import</span> <span class="n">ARIMA</span>
-
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa.arima.model</span> <span class="kn">import</span> <span class="n">ARIMA</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -433,6 +424,7 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="conjunto-de-datos-1">
 <h1><strong>Conjunto de datos 1</strong><a class="headerlink" href="#conjunto-de-datos-1" title="Link to this heading">#</a></h1>
+<p>Inicialmente hacemos cargue del conjunto de datos a usar.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\kamac\OneDrive\Desktop\DelitosBarranquilla\comparativo_de_delitos.csv&quot;</span><span class="p">)</span>
@@ -442,8 +434,11 @@ document.write(`
 </div>
 <section id="contextualizacion-de-los-datos">
 <h2><strong>Contextualización de los datos</strong><a class="headerlink" href="#contextualizacion-de-los-datos" title="Link to this heading">#</a></h2>
+<p>Este conjunto de datos presenta un consolidado de delitos de alto impacto ocurridos en la ciudad de Barranquilla. Incluye cifras preliminares de homicidios, denuncias por extorsión, lesiones personales, delitos sexuales, violencia intrafamiliar y diversos tipos de hurto, como hurto a personas, comercios, residencias, entidades financieras, automotores y motocicletas. Además, proporciona una comparación entre el mismo periodo de diferentes años, destacando las variaciones porcentuales (%) y absolutas (#), lo que permite un análisis detallado de las tendencias y cambios en la incidencia de estos delitos a lo largo del tiempo. Este conjunto de datos constituye una herramienta valiosa para comprender la dinámica delictiva en Barranquilla y diseñar estrategias de prevención basadas en evidencia.</p>
+<p>El conjunto de datos se encuentra en el siguiente enlace: <a class="reference external" href="https://www.datos.gov.co/Seguridad-y-Defensa/Comparativo-de-delitos-de-alto-impacto-en-la-ciuda/4p95-h82w/about_data">Comparativo de delitos de alto impacto en la ciudad de Barranquilla</a></p>
 <section id="caracteristicas-de-los-datos">
 <h3><strong>Características de los datos</strong><a class="headerlink" href="#caracteristicas-de-los-datos" title="Link to this heading">#</a></h3>
+<p>Ahora se visualizan las primeras cinco observaciones del conjunto de datos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -541,101 +536,6 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Periodo meses comparado</th>
-      <th>Años comparados</th>
-      <th>Delito</th>
-      <th>Casos/denuncias  anterior periodo</th>
-      <th>Casos/denuncias último periodo</th>
-      <th>Variación %</th>
-      <th>Variación absoluta</th>
-      <th>Fuente</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>422</th>
-      <td>1 enero al 31 de diciembre</td>
-      <td>2022-2023</td>
-      <td>Hurto a Personas</td>
-      <td>11,596</td>
-      <td>12,902</td>
-      <td>11%</td>
-      <td>1306</td>
-      <td>POLICIA MEBAR-GRICRI,datos extraidos del balan...</td>
-    </tr>
-    <tr>
-      <th>423</th>
-      <td>1 enero al 31 de diciembre</td>
-      <td>2022-2023</td>
-      <td>Hurto a Comercio</td>
-      <td>1,559</td>
-      <td>1,027</td>
-      <td>-34%</td>
-      <td>-532</td>
-      <td>POLICIA MEBAR-GRICRI,datos extraidos del balan...</td>
-    </tr>
-    <tr>
-      <th>424</th>
-      <td>1 enero al 31 de diciembre</td>
-      <td>2022-2023</td>
-      <td>Hurto a Residencias</td>
-      <td>499</td>
-      <td>661</td>
-      <td>32%</td>
-      <td>162</td>
-      <td>POLICIA MEBAR-GRICRI,datos extraidos del balan...</td>
-    </tr>
-    <tr>
-      <th>425</th>
-      <td>1 enero al 31 de diciembre</td>
-      <td>2022-2023</td>
-      <td>Hurto Motocicletas</td>
-      <td>989</td>
-      <td>1,168</td>
-      <td>18%</td>
-      <td>179</td>
-      <td>POLICIA MEBAR-GRICRI,datos extraidos del balan...</td>
-    </tr>
-    <tr>
-      <th>426</th>
-      <td>1 enero al 31 de diciembre</td>
-      <td>2022-2023</td>
-      <td>Hurto a Automotores</td>
-      <td>481</td>
-      <td>429</td>
-      <td>-11%</td>
-      <td>-52</td>
-      <td>POLICIA MEBAR-GRICRI,datos extraidos del balan...</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
@@ -646,38 +546,12 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 427 entries, 0 to 426
-Data columns (total 8 columns):
- #   Column                             Non-Null Count  Dtype 
----  ------                             --------------  ----- 
- 0   Periodo meses comparado            427 non-null    object
- 1   Años comparados                    427 non-null    object
- 2   Delito                             427 non-null    object
- 3   Casos/denuncias  anterior periodo  427 non-null    object
- 4   Casos/denuncias último periodo     427 non-null    object
- 5   Variación %                        427 non-null    object
- 6   Variación absoluta                 427 non-null    object
- 7   Fuente                             427 non-null    object
-dtypes: object(8)
-memory usage: 26.8+ KB
-</pre></div>
-</div>
-</div>
-</div>
+<p>El conjunto de datos inicial cuenta con <strong>427</strong> observaciones y <strong>8</strong> variables.</p>
 </section>
 </section>
 <section id="transformacion-limpieza-y-reorganizacion-del-conjunto-de-datos">
 <h2><strong>Transformación, limpieza y reorganización del conjunto de datos</strong><a class="headerlink" href="#transformacion-limpieza-y-reorganizacion-del-conjunto-de-datos" title="Link to this heading">#</a></h2>
-<section id="reorganizacion-de-variables-categorias">
-<h3><strong>Reorganización de variables categorías</strong><a class="headerlink" href="#reorganizacion-de-variables-categorias" title="Link to this heading">#</a></h3>
+<p>Inicialmente, se eliminó la columna correspondiente a <strong>“Fuente”</strong>, ya que no será relevante para el desarrollo del tablero de visualización. No obstante, es importante mencionar que la fuente de los datos es <strong>“POLICÍA MEBAR-GRICRI”</strong>, y los mismos fueron extraídos del balance criminológico, garantizando la veracidad y confiabilidad de la información utilizada.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Fuente&#39;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
@@ -685,6 +559,7 @@ memory usage: 26.8+ KB
 </div>
 </div>
 </div>
+<p>En este proceso, se reorganizan y preparan los datos para facilitar su análisis. Primero, la columna <strong>“Años comparados”</strong> se divide en dos nuevas columnas, <strong>“Año anterior”</strong> y <strong>“Último año”</strong>, separando la información de los años comparados. Luego, se elimina la columna original <strong>“Años comparados”</strong> al no ser necesaria tras la división. Finalmente, las columnas del DataFrame se reorganizan para mejorar su legibilidad, destacando información clave como el periodo comparado, los tipos de delitos, el número de casos en cada año y las variaciones porcentuales y absolutas. Este proceso da como resultado una estructura más clara y lógica que facilita la interpretación de los datos y el análisis de tendencias delictivas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dividir la columna &#39;Años comparados&#39; en &#39;Año anterior&#39; y &#39;Último año&#39;</span>
@@ -714,6 +589,7 @@ memory usage: 26.8+ KB
 </div>
 </div>
 </div>
+<p>Para manejar la duplicidad de categorías debido a diferencias en mayúsculas y minúsculas, se aplica una transformación a la columna <strong>“Delito”</strong> utilizando una función lambda. Esta transformación estandariza los nombres de las categorías, agrupando aquellas que tienen el mismo significado pero están escritas de forma diferente (por ejemplo, en mayúsculas o con variaciones en su redacción). La función busca palabras clave en cada valor de la columna, las convierte a minúsculas con <code class="docutils literal notranslate"><span class="pre">.lower()</span></code> y asigna un nombre unificado a las categorías. Esto garantiza consistencia en los datos y facilita el análisis posterior al eliminar redundancias y garantizar que cada categoría represente un único tipo de delito.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Aplicar la transformación usando lambda para agrupar las categorías repetidas</span>
@@ -734,6 +610,7 @@ memory usage: 26.8+ KB
 </div>
 </div>
 </div>
+<p>Entonces, los delitos que encontramos en la base de datos son los siguentes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;Delito&#39;</span><span class="p">)</span>
@@ -760,345 +637,49 @@ Name: count, dtype: int64
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filtrar las filas donde haya &quot;ND&quot; en cualquier columna</span>
-<span class="n">observaciones_nd</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;ND&#39;</span><span class="p">,</span> <span class="n">na</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)]</span>
-<span class="n">observaciones_nd</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Meses comparados</th>
-      <th>Año anterior</th>
-      <th>Último año</th>
-      <th>Delito</th>
-      <th>Casos anterior año</th>
-      <th>Casos último año</th>
-      <th>Variacion porcentual</th>
-      <th>Variacion absoluta</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>293</th>
-      <td>1 enero al 31 de octubre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Extorsión</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-    <tr>
-      <th>295</th>
-      <td>1 enero al 31 de octubre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Delitos sexuales</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-    <tr>
-      <th>296</th>
-      <td>1 enero al 31 de octubre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Violencia intrafamiliar</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-    <tr>
-      <th>302</th>
-      <td>1 enero al 31 de octubre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Hurtos a entidades financieras</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-    <tr>
-      <th>303</th>
-      <td>1 enero al 31 de octubre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Hurtos de celulares</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-    <tr>
-      <th>304</th>
-      <td>1 enero al 31 de octubre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Hurtos de bicicletas</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-    <tr>
-      <th>306</th>
-      <td>1 enero al 30 de noviembre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Extorsión</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-    <tr>
-      <th>308</th>
-      <td>1 enero al 30 de noviembre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Delitos sexuales</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-    <tr>
-      <th>309</th>
-      <td>1 enero al 30 de noviembre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Violencia intrafamiliar</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-    <tr>
-      <th>314</th>
-      <td>1 enero al 30 de noviembre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Hurtos automotores</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-    <tr>
-      <th>315</th>
-      <td>1 enero al 30 de noviembre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Hurtos a entidades financieras</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-    <tr>
-      <th>316</th>
-      <td>1 enero al 30 de noviembre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Hurtos de celulares</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-    <tr>
-      <th>317</th>
-      <td>1 enero al 30 de noviembre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Hurtos de bicicletas</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-    <tr>
-      <th>321</th>
-      <td>1 enero al 31 de diciembre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Delitos sexuales</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-    <tr>
-      <th>322</th>
-      <td>1 enero al 31 de diciembre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Violencia intrafamiliar</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-    <tr>
-      <th>328</th>
-      <td>1 enero al 31 de diciembre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Hurtos a entidades financieras</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-    <tr>
-      <th>329</th>
-      <td>1 enero al 31 de diciembre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Hurtos de celulares</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-    <tr>
-      <th>330</th>
-      <td>1 enero al 31 de diciembre</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Hurtos de bicicletas</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-      <td>ND</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reemplazar &quot;ND&quot; por NaN</span>
-<span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ND&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># Eliminar columnas que contienen solo NaN (es decir, donde todos los valores son NaN)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Meses comparados</th>
-      <th>Año anterior</th>
-      <th>Último año</th>
-      <th>Delito</th>
-      <th>Casos anterior año</th>
-      <th>Casos último año</th>
-      <th>Variacion porcentual</th>
-      <th>Variacion absoluta</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>427</td>
-      <td>427</td>
-      <td>427</td>
-      <td>427</td>
-      <td>409</td>
-      <td>409</td>
-      <td>409</td>
-      <td>409</td>
-    </tr>
-    <tr>
-      <th>unique</th>
-      <td>23</td>
-      <td>4</td>
-      <td>4</td>
-      <td>13</td>
-      <td>344</td>
-      <td>337</td>
-      <td>144</td>
-      <td>293</td>
-    </tr>
-    <tr>
-      <th>top</th>
-      <td>01 al 31 de enero</td>
-      <td>2021</td>
-      <td>2022</td>
-      <td>Homicidios</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0%</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>freq</th>
-      <td>35</td>
-      <td>142</td>
-      <td>142</td>
-      <td>47</td>
-      <td>12</td>
-      <td>8</td>
-      <td>14</td>
-      <td>13</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</section>
-</section>
-<section id="delitos">
-<h2><strong>Delitos</strong><a class="headerlink" href="#delitos" title="Link to this heading">#</a></h2>
+<p>Ahora, haremos una transformación por cada delito.</p>
+<p>En este bloque de código se realiza una transformación específica para el delito de <strong>homicidios</strong>, pero este proceso es aplicable a todos los delitos mencionados previamente (delitos sexuales, extorsión, violencia intrafamiliar, hurtos a personas, comercios, residencias, entidades financieras, automotores, motocicletas, bicicletas y celulares). A continuación, se describe lo que se realiza:</p>
+<ol class="arabic simple">
+<li><p><strong>Filtrado por delito específico</strong>:</p>
+<ul class="simple">
+<li><p>Se seleccionan únicamente las filas correspondientes al delito de interés, en este caso, <strong>homicidios</strong>.</p></li>
+</ul>
+</li>
+<li><p><strong>Extracción y limpieza de datos</strong>:</p>
+<ul class="simple">
+<li><p>Se extrae el nombre del mes desde la columna <strong>“Meses comparados”</strong> para obtener una columna separada con el nombre del mes.</p></li>
+<li><p>La primera letra de cada mes se convierte en mayúscula para estandarizar el formato.</p></li>
+</ul>
+</li>
+<li><p><strong>Conversión de columnas numéricas</strong>:</p>
+<ul class="simple">
+<li><p>Se convierten las columnas <strong>“Casos anterior año”</strong> y <strong>“Casos último año”</strong> a valores numéricos para permitir cálculos matemáticos posteriores.</p></li>
+</ul>
+</li>
+<li><p><strong>Cálculo de casos mensuales</strong>:</p>
+<ul class="simple">
+<li><p>Se crean nuevas columnas que calculan la diferencia de los casos de cada mes dentro de los años respectivos, asegurando que se puedan comparar de manera precisa.</p></li>
+</ul>
+</li>
+<li><p><strong>Cálculo de variaciones</strong>:</p>
+<ul class="simple">
+<li><p>Se calcula la variación absoluta entre los casos del año anterior y los del último año.</p></li>
+<li><p>Se calcula la variación porcentual, mostrando cómo ha cambiado el número de casos entre ambos años.</p></li>
+</ul>
+</li>
+<li><p><strong>Renombrado y reorganización de columnas</strong>:</p>
+<ul class="simple">
+<li><p>Las columnas se renombran para que sean más descriptivas.</p></li>
+<li><p>Se reorganizan para mejorar la legibilidad y facilitar la exportación.</p></li>
+</ul>
+</li>
+<li><p><strong>Conversión a enteros y exportación</strong>:</p>
+<ul class="simple">
+<li><p>Las columnas numéricas se convierten a enteros eliminando los decimales, y los resultados se exportan a un archivo CSV con los datos ya ordenados y procesados.</p></li>
+</ul>
+</li>
+</ol>
+<p>Este proceso permite organizar y analizar los datos de manera detallada para cada delito, estandarizando los cálculos y dejando los datos listos para su interpretación y visualización en herramientas como Power BI.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_homicidios</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Delito&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Homicidios&#39;</span><span class="p">]</span>
@@ -1151,6 +732,8 @@ Name: count, dtype: int64
 </div>
 </div>
 </div>
+<p>Cabe destacar que, en este caso, el proceso se muestra únicamente para la categoría de <strong>homicidios</strong> con el objetivo de mejorar la claridad y visibilidad del informe. No obstante, este mismo procedimiento fue aplicado de manera consistente a cada uno de los tipos de delitos mencionados anteriormente, garantizando un análisis detallado y uniforme para todas las categorías incluidas en el conjunto de datos.</p>
+<p>Ahora, importamos cada base de datos generada por la transformación.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_homicidios</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">kamac</span><span class="se">\\</span><span class="s2">OneDrive</span><span class="se">\\</span><span class="s2">Desktop</span><span class="se">\\</span><span class="s2">DelitosBarranquilla</span><span class="se">\\</span><span class="s2">homicidios_ordenados.csv&quot;</span><span class="p">)</span>
@@ -1169,6 +752,7 @@ Name: count, dtype: int64
 </div>
 </div>
 </div>
+<p>Se unen cada base de datos de tipo de delitos en una sola llamada <code class="docutils literal notranslate"><span class="pre">df_total</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Concatenar todos los DataFrames en uno solo</span>
@@ -1186,13 +770,11 @@ Name: count, dtype: int64
     <span class="n">df_hurtos_bicicletas</span><span class="p">,</span>
     <span class="n">df_hurtos_celulares</span>
 <span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-
-<span class="n">df_total</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">kamac</span><span class="se">\\</span><span class="s2">OneDrive</span><span class="se">\\</span><span class="s2">Desktop</span><span class="se">\\</span><span class="s2">DelitosBarranquilla</span><span class="se">\\</span><span class="s2">todos_delitos_ordenados.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>En este bloque de código se limpia y ajusta el conjunto de datos consolidado. Primero, se eliminan todas las filas que contienen valores faltantes (<em>NaN</em>) utilizando <code class="docutils literal notranslate"><span class="pre">dropna()</span></code>, asegurando que los datos estén completos. Luego, se identifican las columnas numéricas de tipo <code class="docutils literal notranslate"><span class="pre">float64</span></code> con <code class="docutils literal notranslate"><span class="pre">select_dtypes</span></code> y se convierten a enteros (<code class="docutils literal notranslate"><span class="pre">int</span></code>) para eliminar los decimales, lo cual es útil en análisis donde no se necesitan valores fraccionarios, como el conteo de casos. Finalmente, con <code class="docutils literal notranslate"><span class="pre">df_total.shape</span></code>, se verifica que el DataFrame resultante contiene <strong>330 filas</strong> y <strong>8 columnas</strong>, indicando que los datos están limpios y listos para su análisis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eliminar filas con valores NaN</span>
@@ -1203,17 +785,6 @@ Name: count, dtype: int64
 
 <span class="c1"># Convertir las columnas numéricas a enteros, eliminando los decimales</span>
 <span class="n">df_total</span><span class="p">[</span><span class="n">numerical_columns</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_total</span><span class="p">[</span><span class="n">numerical_columns</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-
-<span class="c1"># Exportar el archivo CSV</span>
-<span class="n">df_total</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Users</span><span class="se">\\</span><span class="s1">kamac</span><span class="se">\\</span><span class="s1">OneDrive</span><span class="se">\\</span><span class="s1">Desktop</span><span class="se">\\</span><span class="s1">DelitosBarranquilla</span><span class="se">\\</span><span class="s1">todos_delitos_ordenados.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ruta_archivo</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\Users\kamac\OneDrive\Desktop\DelitosBarranquilla\todos_delitos_ordenados.csv&#39;</span>
-<span class="n">df_total</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ruta_archivo</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1230,6 +801,7 @@ Name: count, dtype: int64
 </div>
 </div>
 </div>
+<p>Dado que, según la estructura de los datos, los casos del año <strong>2023</strong> se encuentran en la columna <strong>“Último año”</strong>, mientras que los casos de años anteriores están en la columna <strong>“Año anterior”</strong>, se procede a separar y filtrar la información. Primero, se crea un DataFrame filtrado (<code class="docutils literal notranslate"><span class="pre">df_filtered</span></code>) con las columnas relevantes para los casos de años anteriores. Luego, se extraen únicamente los registros correspondientes al año <strong>2023</strong> en un nuevo DataFrame (<code class="docutils literal notranslate"><span class="pre">df_2023</span></code>). Este último conserva las columnas específicas de <strong>mes</strong>, <strong>año</strong>, <strong>delito</strong>, y los <strong>casos mensuales del último año</strong>, lo que permite analizar los casos del año más reciente de manera independiente. Esto asegura que la información esté correctamente segmentada para facilitar su análisis y comparación.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_filtered</span> <span class="o">=</span> <span class="n">df_total</span><span class="p">[[</span><span class="s1">&#39;Mes&#39;</span><span class="p">,</span> <span class="s1">&#39;Año anterior&#39;</span><span class="p">,</span> <span class="s1">&#39;Delito&#39;</span><span class="p">,</span> <span class="s1">&#39;Casos Mensuales Año Anterior&#39;</span><span class="p">]]</span>
@@ -1251,6 +823,7 @@ Name: count, dtype: int64
 </div>
 </div>
 </div>
+<p>En este bloque de código, se integran los datos del año <strong>2023</strong> con los de años anteriores para crear un DataFrame consolidado. Primero, las columnas de <code class="docutils literal notranslate"><span class="pre">df_2023</span></code> se renombran para que coincidan con la estructura de <code class="docutils literal notranslate"><span class="pre">df_filtered</span></code>, lo que asegura consistencia en los nombres de las columnas. Luego, ambos DataFrames se concatenan utilizando <code class="docutils literal notranslate"><span class="pre">pd.concat</span></code>, generando un único conjunto de datos (<code class="docutils literal notranslate"><span class="pre">df_final</span></code>) con todos los años de análisis. Finalmente, se ajustan los valores en la columna <strong>“Casos Mensuales Año Anterior”</strong>, reemplazando posibles valores negativos por 0 mediante una función <code class="docutils literal notranslate"><span class="pre">lambda</span></code>, garantizando datos coherentes y listos para su análisis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_final</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_filtered</span><span class="p">,</span> <span class="n">df_2023</span><span class="p">],</span> <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
@@ -1265,6 +838,7 @@ Name: count, dtype: int64
 </div>
 </div>
 </div>
+<p>En este paso, se renombran las columnas del DataFrame consolidado (<code class="docutils literal notranslate"><span class="pre">df_final</span></code>) para hacerlas más claras y descriptivas. Por ejemplo, <strong>“Año anterior”</strong> se cambia a <strong>“Año”</strong> y <strong>“Casos Mensuales Año Anterior”</strong> se convierte en <strong>“Cantidad de casos”</strong>, lo que facilita la interpretación de los datos. Este cambio asegura que los nombres de las columnas sean más intuitivos y adecuados para su análisis y visualización, mejorando la legibilidad del conjunto de datos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_final</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
@@ -1277,6 +851,7 @@ Name: count, dtype: int64
 </div>
 </div>
 </div>
+<p>Este proceso transforma el conjunto de datos para que sea compatible y óptimo para su uso en <strong>Power BI</strong>, asegurando un manejo eficiente y visualmente claro. Se realiza un mapeo de los meses a valores numéricos y se crea una columna de <strong>“Fecha”</strong> combinando el año, el mes y un día estándar (“01”), permitiendo trabajar con fechas en un formato adecuado para gráficos de series temporales. Además, se eliminan columnas intermedias y originales como <strong>“Mes”</strong> y <strong>“Año”</strong>, se reorganizan las columnas para priorizar <strong>“Fecha”</strong>, <strong>“Delito”</strong> y <strong>“Cantidad de casos”</strong>, y se reemplazan valores negativos en los datos por 0. Finalmente, el conjunto de datos procesado se exporta a un archivo CSV, listo para ser utilizado en tableros de visualización en Power BI.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear un mapeo para los meses</span>
@@ -1314,1117 +889,6 @@ Name: count, dtype: int64
 </div>
 </div>
 </section>
-<section id="modelo-de-series-de-tiempo">
-<h2><strong>Modelo de series de tiempo</strong><a class="headerlink" href="#modelo-de-series-de-tiempo" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_final</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\Users\kamac\OneDrive\Desktop\DelitosBarranquilla\df_final.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_final</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Fecha</th>
-      <th>Delito</th>
-      <th>Cantidad de casos</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2019-01</td>
-      <td>Homicidios</td>
-      <td>25</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2019-02</td>
-      <td>Homicidios</td>
-      <td>24</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2019-03</td>
-      <td>Homicidios</td>
-      <td>25</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2019-04</td>
-      <td>Homicidios</td>
-      <td>20</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2019-05</td>
-      <td>Homicidios</td>
-      <td>20</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_final</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Fecha</th>
-      <th>Delito</th>
-      <th>Cantidad de casos</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>406</th>
-      <td>2023-08</td>
-      <td>Extorsión</td>
-      <td>96</td>
-    </tr>
-    <tr>
-      <th>407</th>
-      <td>2023-09</td>
-      <td>Extorsión</td>
-      <td>129</td>
-    </tr>
-    <tr>
-      <th>408</th>
-      <td>2023-10</td>
-      <td>Extorsión</td>
-      <td>178</td>
-    </tr>
-    <tr>
-      <th>409</th>
-      <td>2023-11</td>
-      <td>Extorsión</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>410</th>
-      <td>2023-12</td>
-      <td>Extorsión</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_hurtos_personas</span> <span class="o">=</span> <span class="n">df_final</span><span class="p">[</span><span class="n">df_final</span><span class="p">[</span><span class="s1">&#39;Delito&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Hurtos a personas&#39;</span><span class="p">]</span>
-
-<span class="c1"># Mostrar las primeras filas para verificar</span>
-<span class="n">df_hurtos_personas</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Fecha</th>
-      <th>Delito</th>
-      <th>Cantidad de casos</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>47</th>
-      <td>2019-01</td>
-      <td>Hurtos a personas</td>
-      <td>892</td>
-    </tr>
-    <tr>
-      <th>48</th>
-      <td>2019-02</td>
-      <td>Hurtos a personas</td>
-      <td>924</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>2019-03</td>
-      <td>Hurtos a personas</td>
-      <td>1164</td>
-    </tr>
-    <tr>
-      <th>50</th>
-      <td>2019-04</td>
-      <td>Hurtos a personas</td>
-      <td>760</td>
-    </tr>
-    <tr>
-      <th>51</th>
-      <td>2019-05</td>
-      <td>Hurtos a personas</td>
-      <td>959</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_hurtos_personas</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(57, 3)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asegurarnos de que la columna &#39;Fecha&#39; esté en formato de fecha, añadiendo el primer día del mes</span>
-<span class="n">df_hurtos_personas</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_hurtos_personas</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;-01&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="c1"># Verificar el resultado</span>
-<span class="n">df_hurtos_personas</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Fecha</th>
-      <th>Delito</th>
-      <th>Cantidad de casos</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>47</th>
-      <td>2019-01-01</td>
-      <td>Hurtos a personas</td>
-      <td>892</td>
-    </tr>
-    <tr>
-      <th>48</th>
-      <td>2019-02-01</td>
-      <td>Hurtos a personas</td>
-      <td>924</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>2019-03-01</td>
-      <td>Hurtos a personas</td>
-      <td>1164</td>
-    </tr>
-    <tr>
-      <th>50</th>
-      <td>2019-04-01</td>
-      <td>Hurtos a personas</td>
-      <td>760</td>
-    </tr>
-    <tr>
-      <th>51</th>
-      <td>2019-05-01</td>
-      <td>Hurtos a personas</td>
-      <td>959</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_hurtos_personas</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Fecha</th>
-      <th>Delito</th>
-      <th>Cantidad de casos</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>348</th>
-      <td>2023-07-01</td>
-      <td>Hurtos a personas</td>
-      <td>1707</td>
-    </tr>
-    <tr>
-      <th>349</th>
-      <td>2023-08-01</td>
-      <td>Hurtos a personas</td>
-      <td>1218</td>
-    </tr>
-    <tr>
-      <th>350</th>
-      <td>2023-09-01</td>
-      <td>Hurtos a personas</td>
-      <td>1026</td>
-    </tr>
-    <tr>
-      <th>351</th>
-      <td>2023-10-01</td>
-      <td>Hurtos a personas</td>
-      <td>180</td>
-    </tr>
-    <tr>
-      <th>352</th>
-      <td>2023-11-01</td>
-      <td>Hurtos a personas</td>
-      <td>72</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asegurarse de que la columna &#39;Fecha&#39; esté en formato datetime</span>
-<span class="n">df_hurtos_personas</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_hurtos_personas</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
-
-<span class="c1"># Lista de meses para realizar las predicciones</span>
-<span class="n">meses</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span> <span class="p">]</span>
-
-<span class="c1"># Diccionario para almacenar los resultados de las predicciones</span>
-<span class="n">predicciones</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="c1"># Realizar predicciones para cada mes</span>
-<span class="k">for</span> <span class="n">mes</span> <span class="ow">in</span> <span class="n">meses</span><span class="p">:</span>
-    <span class="c1"># Filtrar los datos por mes</span>
-    <span class="n">df_mes</span> <span class="o">=</span> <span class="n">df_hurtos_personas</span><span class="p">[</span><span class="n">df_hurtos_personas</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">mes</span><span class="p">]</span>
-    <span class="n">df_mes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="c1"># Ajustar el modelo ARIMA (ajustar los parámetros p, d, q si es necesario)</span>
-    <span class="n">modelo_mes</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">df_mes</span><span class="p">[</span><span class="s1">&#39;Cantidad de casos&#39;</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># p=1, d=1, q=1 como ejemplo</span>
-    <span class="n">modelo_fit_mes</span> <span class="o">=</span> <span class="n">modelo_mes</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-
-    <span class="c1"># Realizar la predicción para el siguiente mes</span>
-    <span class="n">forecast_mes</span> <span class="o">=</span> <span class="n">modelo_fit_mes</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-    <span class="c1"># Crear la fecha de la predicción</span>
-    <span class="n">forecast_date_mes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;2024-</span><span class="si">{</span><span class="n">mes</span><span class="si">:</span><span class="s1">02d</span><span class="si">}</span><span class="s1">-01&#39;</span><span class="p">)</span>
-
-    <span class="c1"># Redondear la predicción al siguiente número entero</span>
-    <span class="n">forecast_mes_redondeado</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">forecast_mes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-    <span class="c1"># Crear un DataFrame con las predicciones</span>
-    <span class="n">forecast_df_mes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-        <span class="s1">&#39;Fecha&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">forecast_date_mes</span><span class="p">],</span>
-        <span class="s1">&#39;Delito&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Hurtos a personas&#39;</span><span class="p">],</span>  <span class="c1"># Aquí puedes cambiar el delito según sea necesario</span>
-        <span class="s1">&#39;Cantidad de casos&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">forecast_mes_redondeado</span><span class="p">]</span>
-    <span class="p">})</span>
-
-    <span class="c1"># Almacenar la predicción</span>
-    <span class="n">predicciones</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">forecast_df_mes</span><span class="p">)</span>
-
-<span class="c1"># Concatenar todas las predicciones en un solo DataFrame</span>
-<span class="n">df_predicciones</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">predicciones</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="n">df_predicciones</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Fecha</th>
-      <th>Delito</th>
-      <th>Cantidad de casos</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2024-01-01</td>
-      <td>Hurtos a personas</td>
-      <td>921</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2024-02-01</td>
-      <td>Hurtos a personas</td>
-      <td>1974</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2024-03-01</td>
-      <td>Hurtos a personas</td>
-      <td>800</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2024-04-01</td>
-      <td>Hurtos a personas</td>
-      <td>1373</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2024-05-01</td>
-      <td>Hurtos a personas</td>
-      <td>1192</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>2024-06-01</td>
-      <td>Hurtos a personas</td>
-      <td>1796</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>2024-07-01</td>
-      <td>Hurtos a personas</td>
-      <td>1776</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>2024-08-01</td>
-      <td>Hurtos a personas</td>
-      <td>1225</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>2024-09-01</td>
-      <td>Hurtos a personas</td>
-      <td>985</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>2024-10-01</td>
-      <td>Hurtos a personas</td>
-      <td>465</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>2024-11-01</td>
-      <td>Hurtos a personas</td>
-      <td>65</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_modelo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_hurtos_personas</span><span class="p">,</span> <span class="n">df_predicciones</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asegurarse de que la columna &#39;Fecha&#39; esté en formato datetime</span>
-<span class="n">df_modelo</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_modelo</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
-
-<span class="c1"># Lista de meses para realizar las predicciones para 2025</span>
-<span class="n">meses</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>  <span class="c1"># Meses de todo el año</span>
-
-<span class="c1"># Diccionario para almacenar los resultados de las predicciones</span>
-<span class="n">predicciones_2025</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="c1"># Realizar predicciones para cada mes de 2025</span>
-<span class="k">for</span> <span class="n">mes</span> <span class="ow">in</span> <span class="n">meses</span><span class="p">:</span>
-    <span class="c1"># Filtrar los datos por mes</span>
-    <span class="n">df_mes</span> <span class="o">=</span> <span class="n">df_modelo</span><span class="p">[</span><span class="n">df_modelo</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">mes</span><span class="p">]</span>
-    <span class="n">df_mes</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="c1"># Ajustar el modelo ARIMA (ajustar los parámetros p, d, q si es necesario)</span>
-    <span class="n">modelo_mes</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">df_mes</span><span class="p">[</span><span class="s1">&#39;Cantidad de casos&#39;</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># p=1, d=1, q=1 como ejemplo</span>
-    <span class="n">modelo_fit_mes</span> <span class="o">=</span> <span class="n">modelo_mes</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-
-    <span class="c1"># Realizar la predicción para el siguiente mes</span>
-    <span class="n">forecast_mes</span> <span class="o">=</span> <span class="n">modelo_fit_mes</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-    <span class="c1"># Crear la fecha de la predicción para el año 2025</span>
-    <span class="n">forecast_date_mes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;2025-</span><span class="si">{</span><span class="n">mes</span><span class="si">:</span><span class="s1">02d</span><span class="si">}</span><span class="s1">-01&#39;</span><span class="p">)</span>
-
-    <span class="c1"># Redondear la predicción al siguiente número entero</span>
-    <span class="n">forecast_mes_redondeado</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">forecast_mes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-    <span class="c1"># Crear un DataFrame con las predicciones</span>
-    <span class="n">forecast_df_mes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-        <span class="s1">&#39;Fecha&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">forecast_date_mes</span><span class="p">],</span>
-        <span class="s1">&#39;Delito&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Hurtos a personas&#39;</span><span class="p">],</span>  <span class="c1"># Aquí puedes cambiar el delito según sea necesario</span>
-        <span class="s1">&#39;Cantidad de casos&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">forecast_mes_redondeado</span><span class="p">]</span>
-    <span class="p">})</span>
-
-    <span class="c1"># Almacenar la predicción</span>
-    <span class="n">predicciones_2025</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">forecast_df_mes</span><span class="p">)</span>
-
-<span class="c1"># Concatenar todas las predicciones de 2025 en un solo DataFrame</span>
-<span class="n">df_predicciones_2025</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">predicciones_2025</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># Mostrar las predicciones de 2025</span>
-<span class="n">df_predicciones_2025</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Fecha</th>
-      <th>Delito</th>
-      <th>Cantidad de casos</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2025-01-01</td>
-      <td>Hurtos a personas</td>
-      <td>921</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2025-02-01</td>
-      <td>Hurtos a personas</td>
-      <td>1954</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2025-03-01</td>
-      <td>Hurtos a personas</td>
-      <td>908</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2025-04-01</td>
-      <td>Hurtos a personas</td>
-      <td>1373</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2025-05-01</td>
-      <td>Hurtos a personas</td>
-      <td>172</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>2025-06-01</td>
-      <td>Hurtos a personas</td>
-      <td>1796</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>2025-07-01</td>
-      <td>Hurtos a personas</td>
-      <td>1768</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>2025-08-01</td>
-      <td>Hurtos a personas</td>
-      <td>1229</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>2025-09-01</td>
-      <td>Hurtos a personas</td>
-      <td>971</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>2025-10-01</td>
-      <td>Hurtos a personas</td>
-      <td>555</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_modelos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_modelo</span><span class="p">,</span> <span class="n">df_predicciones_2025</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_modelos</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\Users\kamac\OneDrive\Desktop\DelitosBarranquilla\predicciones_hurtos_2024_2025.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="conjunto-de-datos-2">
-<h1><strong>Conjunto de datos 2</strong><a class="headerlink" href="#conjunto-de-datos-2" title="Link to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\kamac\OneDrive\Desktop\DelitosBarranquilla\hurtos_colombia.csv&quot;</span><span class="p">)</span>
-<span class="n">data2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\kamac\OneDrive\Desktop\DelitosBarranquilla\hurtos2_colombia.csv&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asegurarse de que la columna &#39;FECHA HECHO&#39; esté en formato datetime</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%Y&#39;</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">,</span> <span class="s1">&#39;DEPARTAMENTO&#39;</span><span class="p">,</span> <span class="s1">&#39;MUNICIPIO&#39;</span><span class="p">,</span> <span class="s1">&#39;TIPO DE HURTO&#39;</span><span class="p">,</span> <span class="s1">&#39;CANTIDAD&#39;</span><span class="p">]]</span>
-<span class="c1"># Filtrar los datos por años mayores o iguales a 2019</span>
-<span class="n">data_2019</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2019</span><span class="p">]</span>
-<span class="n">data_2020</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2020</span><span class="p">]</span>
-<span class="n">data_2021</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2021</span><span class="p">]</span>
-<span class="n">data_2022</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2022</span><span class="p">]</span>
-<span class="n">data_2023</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2023</span><span class="p">]</span>
-<span class="n">data_final</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_2019</span><span class="p">,</span> <span class="n">data_2020</span><span class="p">,</span> <span class="n">data_2021</span><span class="p">,</span> <span class="n">data_2022</span><span class="p">,</span> <span class="n">data_2023</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asegurarse de que la columna &#39;FECHA HECHO&#39; esté en formato datetime</span>
-<span class="n">data2</span><span class="p">[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data2</span><span class="p">[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%Y&#39;</span><span class="p">)</span>
-<span class="n">data2</span> <span class="o">=</span> <span class="n">data2</span><span class="p">[[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">,</span> <span class="s1">&#39;DEPARTAMENTO&#39;</span><span class="p">,</span> <span class="s1">&#39;MUNICIPIO&#39;</span><span class="p">,</span> <span class="s1">&#39;TIPO DE HURTO&#39;</span><span class="p">,</span> <span class="s1">&#39;CANTIDAD&#39;</span><span class="p">]]</span>
-<span class="c1"># Filtrar los datos por años mayores o iguales a 2019</span>
-<span class="n">data2_2019</span> <span class="o">=</span> <span class="n">data2</span><span class="p">[</span><span class="n">data2</span><span class="p">[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2019</span><span class="p">]</span>
-<span class="n">data2_2020</span> <span class="o">=</span> <span class="n">data2</span><span class="p">[</span><span class="n">data2</span><span class="p">[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2020</span><span class="p">]</span>
-<span class="n">data2_2021</span> <span class="o">=</span> <span class="n">data2</span><span class="p">[</span><span class="n">data2</span><span class="p">[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2021</span><span class="p">]</span>
-<span class="n">data2_2022</span> <span class="o">=</span> <span class="n">data2</span><span class="p">[</span><span class="n">data2</span><span class="p">[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2022</span><span class="p">]</span>
-<span class="n">data2_2023</span> <span class="o">=</span> <span class="n">data2</span><span class="p">[</span><span class="n">data2</span><span class="p">[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2023</span><span class="p">]</span>
-<span class="n">data2_final</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data2_2019</span><span class="p">,</span> <span class="n">data2_2020</span><span class="p">,</span> <span class="n">data2_2021</span><span class="p">,</span> <span class="n">data2_2022</span><span class="p">,</span> <span class="n">data2_2023</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_f</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_final</span><span class="p">,</span> <span class="n">data2_final</span><span class="p">],</span> <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_f</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(474917, 5)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_f</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MUNICIPIO&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">data_f</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>FECHA HECHO</th>
-      <th>DEPARTAMENTO</th>
-      <th>TIPO DE HURTO</th>
-      <th>CANTIDAD</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2019-01-01</td>
-      <td>VALLE</td>
-      <td>HURTO AUTOMOTORES</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2019-01-01</td>
-      <td>VALLE</td>
-      <td>HURTO AUTOMOTORES</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2019-01-01</td>
-      <td>VALLE</td>
-      <td>HURTO AUTOMOTORES</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2019-01-01</td>
-      <td>VALLE</td>
-      <td>HURTO AUTOMOTORES</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2019-01-01</td>
-      <td>ANTIOQUIA</td>
-      <td>HURTO AUTOMOTORES</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>474912</th>
-      <td>2023-12-07</td>
-      <td>TOLIMA</td>
-      <td>HURTO ENTIDADES COMERCIALES</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>474913</th>
-      <td>2023-12-17</td>
-      <td>VALLE</td>
-      <td>HURTO ENTIDADES COMERCIALES</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>474914</th>
-      <td>2023-09-04</td>
-      <td>VALLE</td>
-      <td>HURTO ENTIDADES COMERCIALES</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>474915</th>
-      <td>2023-05-25</td>
-      <td>VALLE</td>
-      <td>HURTO ENTIDADES COMERCIALES</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>474916</th>
-      <td>2023-03-24</td>
-      <td>VALLE</td>
-      <td>HURTO ENTIDADES COMERCIALES</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-<p>474917 rows × 4 columns</p>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_f</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;TIPO DE HURTO&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TIPO DE HURTO
-HURTO RESIDENCIAS              180788
-HURTO ENTIDADES COMERCIALES    128064
-HURTO MOTOCICLETAS             127780
-HURTO AUTOMOTORES               38285
-Name: count, dtype: int64
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_f</span><span class="p">[</span><span class="s1">&#39;TIPO DE HURTO&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Hurtos&#39;</span>
-<span class="n">data_f</span><span class="p">[</span><span class="s1">&#39;TIPO DE HURTO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Hurtos&#39;], dtype=object)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_f</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>FECHA HECHO</th>
-      <th>DEPARTAMENTO</th>
-      <th>TIPO DE HURTO</th>
-      <th>CANTIDAD</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2019-01-01</td>
-      <td>VALLE</td>
-      <td>Hurtos</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2019-01-01</td>
-      <td>VALLE</td>
-      <td>Hurtos</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2019-01-01</td>
-      <td>VALLE</td>
-      <td>Hurtos</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2019-01-01</td>
-      <td>VALLE</td>
-      <td>Hurtos</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2019-01-01</td>
-      <td>ANTIOQUIA</td>
-      <td>Hurtos</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asegurarse de que la columna &#39;FECHA HECHO&#39; esté en formato datetime</span>
-<span class="n">data_f</span><span class="p">[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data_f</span><span class="p">[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">])</span>
-
-<span class="c1"># Crear una columna de &#39;Año-Mes&#39; para agrupar por mes y año</span>
-<span class="n">data_f</span><span class="p">[</span><span class="s1">&#39;Año-Mes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_f</span><span class="p">[</span><span class="s1">&#39;FECHA HECHO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
-
-<span class="c1"># Agrupar por &#39;Año-Mes&#39;, &#39;Municipio&#39;, y &#39;Tipo de Hurto&#39; y sumar los &#39;Cantidad de casos&#39;</span>
-<span class="n">data_agrupada</span> <span class="o">=</span> <span class="n">data_f</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Año-Mes&#39;</span><span class="p">,</span> <span class="s1">&#39;DEPARTAMENTO&#39;</span><span class="p">,</span> <span class="s1">&#39;TIPO DE HURTO&#39;</span><span class="p">])[</span><span class="s1">&#39;CANTIDAD&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-
-<span class="c1"># Ver los primeros registros después de agrupar</span>
-<span class="n">data_agrupada</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Año-Mes</th>
-      <th>DEPARTAMENTO</th>
-      <th>TIPO DE HURTO</th>
-      <th>CANTIDAD</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2019-01</td>
-      <td>AMAZONAS</td>
-      <td>Hurtos</td>
-      <td>29</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2019-01</td>
-      <td>ANTIOQUIA</td>
-      <td>Hurtos</td>
-      <td>2094</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2019-01</td>
-      <td>ARAUCA</td>
-      <td>Hurtos</td>
-      <td>69</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2019-01</td>
-      <td>ATLÁNTICO</td>
-      <td>Hurtos</td>
-      <td>564</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2019-01</td>
-      <td>BOLÍVAR</td>
-      <td>Hurtos</td>
-      <td>425</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_agrupada</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Año-Mes</th>
-      <th>DEPARTAMENTO</th>
-      <th>TIPO DE HURTO</th>
-      <th>CANTIDAD</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1906</th>
-      <td>2023-12</td>
-      <td>SUCRE</td>
-      <td>Hurtos</td>
-      <td>48</td>
-    </tr>
-    <tr>
-      <th>1907</th>
-      <td>2023-12</td>
-      <td>TOLIMA</td>
-      <td>Hurtos</td>
-      <td>166</td>
-    </tr>
-    <tr>
-      <th>1908</th>
-      <td>2023-12</td>
-      <td>VALLE</td>
-      <td>Hurtos</td>
-      <td>851</td>
-    </tr>
-    <tr>
-      <th>1909</th>
-      <td>2023-12</td>
-      <td>VAUPÉS</td>
-      <td>Hurtos</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>1910</th>
-      <td>2023-12</td>
-      <td>VICHADA</td>
-      <td>Hurtos</td>
-      <td>4</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_agrupada</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1911, 4)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_agrupada</span><span class="p">[</span><span class="s1">&#39;DEPARTAMENTO&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_agrupada</span><span class="p">[</span><span class="s1">&#39;DEPARTAMENTO&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; - COLOMBIA&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exportar el dataframe agrupado a un archivo CSV</span>
-<span class="n">data_agrupada</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\Users\kamac\OneDrive\Desktop\DelitosBarranquilla\hurto_agrupado.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -2466,6 +930,15 @@ Name: count, dtype: int64
         <p class="prev-next-title"><strong>Contextualización del proyecto</strong></p>
       </div>
     </a>
+    <a class="right-next"
+       href="Modelo.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Modelo de Machine learning</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -2482,7 +955,7 @@ Name: count, dtype: int64
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Análisis exploratorio de datos (EDA)</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>EDA y ETL: Conjunto de datos 1</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#librerias-y-modulos-necesarios"><strong>Librerías y modulos necesarios</strong></a></li>
 </ul>
 </li>
@@ -2491,15 +964,9 @@ Name: count, dtype: int64
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-de-los-datos"><strong>Características de los datos</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacion-limpieza-y-reorganizacion-del-conjunto-de-datos"><strong>Transformación, limpieza y reorganización del conjunto de datos</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reorganizacion-de-variables-categorias"><strong>Reorganización de variables categorías</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacion-limpieza-y-reorganizacion-del-conjunto-de-datos"><strong>Transformación, limpieza y reorganización del conjunto de datos</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delitos"><strong>Delitos</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-de-series-de-tiempo"><strong>Modelo de series de tiempo</strong></a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conjunto-de-datos-2"><strong>Conjunto de datos 2</strong></a></li>
 </ul>
 
   </nav></div>

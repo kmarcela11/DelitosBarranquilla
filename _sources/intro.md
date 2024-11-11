@@ -17,10 +17,5 @@
 </div>
 
 <div style="text-align: justify; margin-bottom: 20px;">
-    El análisis de los datos se centra en establecer patrones y tendencias en estas variables, lo que a su vez permitirá mejorar los modelos predictivos aplicados a la generación de energía. Además, la creación de dashboards interactivos facilitará a los operadores la comprensión y monitoreo en tiempo real de las condiciones climáticas, optimizando así la eficiencia en la producción energética y fortaleciendo la seguridad y sostenibilidad de las operaciones en la región de estudio.
-</div>
-
-
-<div style="text-align: justify; margin-bottom: 20px;">
-    El objetivo de este notebook es documentar de manera detallada todo el proceso de tratamiento de datos realizado, desde la limpieza y transformación hasta el análisis exploratorio, utilizando técnicas y herramientas específicas. Este trabajo constituye la base para el desarrollo de tableros de visualización interactivos en Power BI, donde se plasmarán los resultados obtenidos de forma clara y visualmente impactante. Además, este notebook está diseñado como una guía práctica para aquellas personas interesadas en aprender cómo realizar un tratamiento adecuado de datos abiertos y aprovechar al máximo su potencial para análisis y visualización, fomentando un uso responsable y eficiente de estas fuentes de información.
+    El objetivo de este notebook es documentar de manera detallada todo el proceso de tratamiento de datos realizado, desde la limpieza y transformación hasta el análisis exploratorio, utilizando técnicas y herramientas específicas. El lenguaje de programación que usaremos es Python. Este trabajo constituye la base para el desarrollo de tableros de visualización interactivos en Power BI, donde se plasmarán los resultados obtenidos de forma clara y visualmente impactante. Además, este notebook está diseñado como una guía práctica para aquellas personas interesadas en aprender cómo realizar un tratamiento adecuado de datos abiertos y aprovechar al máximo su potencial para análisis y visualización, fomentando un uso responsable y eficiente de estas fuentes de información.
 </div>
